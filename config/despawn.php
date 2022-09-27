@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'version' => 'canary'
+    'version' => 'canary',
 ];

@@ -47,8 +47,7 @@ class DespawnServiceProvider extends ServiceProvider
     {
         $this->commands([
             Install::class,
-            Update::class
+            Update::class,
         ]);
     }
-
 }

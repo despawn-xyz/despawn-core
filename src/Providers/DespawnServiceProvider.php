@@ -18,29 +18,30 @@ class DespawnServiceProvider extends ServiceProvider
     private function loadPublishers(): void
     {
         $this->publishes([
-            __DIR__.'/../../resources/views' => resource_path('views/vendor/despawn'),
+            __DIR__ . '/../../resources/views' => resource_path('views/vendor/despawn'),
         ], 'despawn-views');
 
         $this->publishes([
-            __DIR__.'/../../config/despawn.php' => config_path('despawn.php'),
+            __DIR__ . '/../../config/despawn.php' => config_path('despawn.php'),
         ], 'despawn-config');
 
         $this->publishes([
-            __DIR__.'/../../public' => public_path('vendor/despawn'),
+            __DIR__ . '/../../public' => public_path('vendor/despawn'),
         ], ['despawn-assets', 'laravel-assets']);
     }
 
     private function loadMergers()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/despawn.php', 'despawn'
+            __DIR__ . '/../../config/despawn.php',
+            'despawn'
         );
 
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'despawn');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'despawn');
     }
 
     private function loadCommands()

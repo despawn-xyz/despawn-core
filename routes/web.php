@@ -25,9 +25,9 @@ Route::middleware('web')->group(function () {
         ]);
     });
 
-    require __DIR__.'/auth.php';
-    require __DIR__.'/forums.php';
-    require __DIR__.'/users.php';
-    require __DIR__.'/store.php';
-    require __DIR__.'/servers.php';
+    require __DIR__ . '/auth.php';
+    require __DIR__ . '/forums.php';
+    require __DIR__ . '/users.php';
+    require __DIR__ . '/store.php';
+    require __DIR__ . '/servers.php';
 });

@@ -1,7 +1,7 @@
 <?php
 
-
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 namespace Despawn\Models;
 
 use Filament\Models\Contracts\FilamentUser;
@@ -13,7 +13,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable, HasUlids;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use HasUlids;
 
     /**
      * The attributes that should be hidden for serialization.

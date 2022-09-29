@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
-    use HasFactory, HasUlids;
+    use HasFactory;
+    use HasUlids;
 
     public function category()
     {

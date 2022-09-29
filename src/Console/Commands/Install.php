@@ -28,7 +28,7 @@ class Install extends Command
         $this->publishAssets();
 
         $this->callSilent('key:generate', [
-            '--force' => true
+            '--force' => true,
         ]);
 
         $this->comment('Despawn is now ready to use. Enjoy!');
@@ -47,7 +47,7 @@ class Install extends Command
         }
 
         $this->call('migrate', [
-            '--force' => true
+            '--force' => true,
         ]);
     }
 
@@ -55,7 +55,6 @@ class Install extends Command
     {
         $this->comment('Publishing fresh assets...');
         $this->callSilent('vendor:publish', ['--tag' => 'despawn-assets']);
-
     }
 
     protected function setKeyInEnvironmentFile($key, $currentKey)
@@ -79,7 +78,7 @@ class Install extends Command
     {
         file_put_contents($this->laravel->environmentFilePath(), preg_replace(
             $this->keyReplacementPattern(),
-            $identifier.'='.$key,
+            $identifier . '=' . $key,
             file_get_contents($this->laravel->environmentFilePath())
         ));
     }

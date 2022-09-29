@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.2",
-        "@tailwindcss/typography": "^0.5.7"
+        "@tailwindcss/typography": "^0.5.7",
+        "marked": "^4.1.0"
     }
 }

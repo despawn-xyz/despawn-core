@@ -14,4 +14,14 @@ class Board extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Board::class);
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
+    }
 }

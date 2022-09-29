@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('threads', function (Blueprint $table) {
-            $table->ulid()->primary();
+            $table->ulid('id')->primary();
             $table->string('title');
             $table->string('slug');
+            $table->json('body');
             $table->foreignUlid('board_id');
             $table->foreignUlid('user_id');
             $table->index(['board_id', 'user_id']);

@@ -25,7 +25,7 @@ class User extends Authenticatable implements FilamentUser
         'avatar',
         'threads_count',
         'created_at_for_humans',
-        'updated_at_for_humans'
+        'updated_at_for_humans',
     ];
 
     /**
@@ -66,14 +66,14 @@ class User extends Authenticatable implements FilamentUser
     public function avatar(): Attribute
     {
         return new Attribute(
-            get: fn() => "https://source.boringavatars.com/beam/40/{$this->name}"
+            get: fn () => "https://source.boringavatars.com/beam/40/{$this->name}"
         );
     }
 
     public function threadsCount(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->hasMany(Thread::class)->count()
+            get: fn () => $this->hasMany(Thread::class)->count()
         );
     }
 }

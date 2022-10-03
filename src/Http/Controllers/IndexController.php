@@ -12,7 +12,7 @@ class IndexController extends Controller
     {
         return Inertia::render('Welcome', [
             'categories' => Category::with(['boards.latestThread'])->get(),
-            'latest_threads' => Thread::orderBy('updated_at')->get()
+            'latest_threads' => Thread::orderBy('updated_at')->get(),
         ]);
     }
 }

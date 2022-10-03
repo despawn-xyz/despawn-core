@@ -17,7 +17,7 @@ class Comment extends Model
     protected $appends = [
         'was_recently_updated',
         'created_at_for_humans',
-        'updated_at_for_humans'
+        'updated_at_for_humans',
     ];
 
     protected $touches = [
@@ -37,7 +37,7 @@ class Comment extends Model
     public function wasRecentlyUpdated(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->created_at->timestamp !== $this->updated_at->timestamp
+            get: fn () => $this->created_at->timestamp !== $this->updated_at->timestamp
         );
     }
 }

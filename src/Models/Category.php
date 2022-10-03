@@ -15,7 +15,7 @@ class Category extends Model
 
     protected $appends = [
         'created_at_for_humans',
-        'updated_at_for_humans'
+        'updated_at_for_humans',
     ];
 
     public function boards()

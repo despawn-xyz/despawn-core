@@ -15,13 +15,13 @@ class Thread extends Model
     use HasHumanTimestamps;
 
     protected $with = [
-        'author'
+        'author',
     ];
 
     protected $appends = [
         'was_recently_updated',
         'created_at_for_humans',
-        'updated_at_for_humans'
+        'updated_at_for_humans',
     ];
 
     public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -42,7 +42,7 @@ class Thread extends Model
     public function wasRecentlyUpdated(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->created_at->timestamp !== $this->updated_at->timestamp
+            get: fn () => $this->created_at->timestamp !== $this->updated_at->timestamp
         );
     }
 }

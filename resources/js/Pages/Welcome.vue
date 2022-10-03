@@ -8,10 +8,8 @@ import { ChatBubbleLeftEllipsisIcon } from "@heroicons/vue/24/outline"
 import Cover from "@/Components/Cover.vue";
 
 defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
+    categories: Object,
+    latest_threads: Object
 })
 </script>
 
@@ -34,18 +32,18 @@ defineProps({
       </div>
     </Container>
 
-    <Container>
-      <div class="w-full grid grid-cols-12">
-        <div class="w-full col-span-12 md:col-span-8">
-          <Card>
+    <Container class="space-y-12">
+      <div class="w-full grid grid-cols-12 gap-8">
+        <div class="w-full col-span-12 md:col-span-8 space-y-8">
+          <Card :key="category.id" v-for="category in $page.props.categories" divide>
             <CardHeader>
               <div class="relative flex flex-col z-10">
-                <h4 class="text-neutral-50 text-lg font-medium">Official</h4>
-                <p class="text-neutral-200 text-sm">Official forums dedicated to announcements, news, information, and feedback.</p>
+                <Link :href="route('forums.category.show', category)" class="text-neutral-50 text-lg font-medium">{{ category.title }}</Link>
+                <p class="text-neutral-200 text-sm">{{ category.description }}</p>
               </div>
             </CardHeader>
 
-            <div class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
+            <div :key="board.id" v-for="board in category.boards" class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
               <div class="col-span-1 flex items-center justify-center p-2">
                 <div class="h-10 w-10 bg-primary-500/10 flex items-center justify-center rounded-full">
                   <ChatBubbleLeftEllipsisIcon class="text-primary-500 h-5 w-5" />
@@ -54,16 +52,16 @@ defineProps({
 
               <div class="col-span-3 md:col-span-7 flex flex-col items-start justify-center p-2">
                 <Link href="/forums/board/announcements" class="font-medium text-neutral-50">
-                  Announcements
+                  {{ board.title }}
                 </Link>
                 <p class="text-neutral-200 truncate w-full">
-                  Very cool, fuck you
+                  {{ board.description }}
                 </p>
               </div>
 
               <div class="hidden md:flex col-span-1 flex-col items-center justify-center p-2 text-center">
                 <p class="font-medium text-primary-500">
-                  2
+                  {{ board.threads_count }}
                 </p>
                 <h6 class="text-neutral-400">
                   Threads
@@ -72,7 +70,7 @@ defineProps({
 
               <div class="hidden md:flex col-span-1 flex-col items-center justify-center p-2 text-center">
                 <p class="font-medium text-primary-500">
-                  7
+                  {{ board.comments_count }}
                 </p>
                 <h6 class="text-neutral-400">
                   Replies
@@ -80,8 +78,34 @@ defineProps({
               </div>
 
               <div class="col-span-2 md:ol-span-2 flex items-center justify-start p-2 overflow-hidden">
-                <img loading="lazy" class="object-cover select-none pointer-events-none rounded-full absolute -right-6 h-32 w-32 opacity-10" url="https://cdn.noclip.gg/zJSb9cD3TC1w8F66/YHSjkKuvFMSvpfWdOfyDDTHEgnXuJW-metaMmQ0NWYzYWJhNTg3YjIwYjFmZmZkMGIzMjBlNjc5NzcuanBn-.jpg" alt="pontifex" src="https://cdn.noclip.gg/zJSb9cD3TC1w8F66/YHSjkKuvFMSvpfWdOfyDDTHEgnXuJW-metaMmQ0NWYzYWJhNTg3YjIwYjFmZmZkMGIzMjBlNjc5NzcuanBn-.jpg">
+                <img v-show="board?.latest_thread?.author?.avatar" :src="board?.latest_thread?.author?.avatar" alt="" loading="lazy" class="object-cover select-none pointer-events-none rounded-full absolute -right-6 h-32 w-32 opacity-10">
+              </div>
+            </div>
+          </Card>
+        </div>
 
+        <div class="w-full col-span-12 md:col-span-4">
+          <Card divide>
+            <CardHeader>
+              <div class="relative flex flex-col z-10">
+                <h4 class="text-neutral-50 text-lg font-medium">Latest Threads</h4>
+                <p class="text-neutral-200 text-sm">Latest threads from King's Gaming</p>
+              </div>
+            </CardHeader>
+
+            <div :key="thread.id" v-for="thread in $page.props.latest_threads" class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
+              <div class="col-span-3 md:col-span-10 flex flex-col items-start justify-center p-2">
+                <Link class="text-neutral-100">
+                  {{ thread.title }}
+                </Link>
+
+                <p class="text-neutral-400 truncate w-full">
+                  {{ thread.created_at_for_humans }} {{ thread.was_recently_updated ? ' - updated' : null}}
+                </p>
+              </div>
+
+              <div class="col-span-3 md:col-span-2 flex items-center justify-start p-2">
+                <img :src="thread.author.avatar" :alt="thread.author.name" loading="lazy" class="object-cover select-none pointer-events-none rounded-full absolute -right-6 opacity-25 h-28 w-28">
               </div>
             </div>
           </Card>

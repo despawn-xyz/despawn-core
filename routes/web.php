@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +14,7 @@ use Inertia\Inertia;
 */
 
 Route::middleware('web')->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Welcome', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-        ]);
-    })->name('home');
+    Route::get('/', [\Despawn\Http\Controllers\IndexController::class, '__invoke'])->name('home');
 
     require __DIR__ . '/auth.php';
     require __DIR__ . '/forums.php';

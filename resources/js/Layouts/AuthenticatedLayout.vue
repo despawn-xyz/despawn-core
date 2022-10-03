@@ -33,8 +33,7 @@ import { Link } from '@inertiajs/inertia-vue3';
                               <PopoverButton
                                   :class="open ? '' : 'text-opacity-90'"
                                   type="button" class="motion-safe:transition inline-flex items-center text-neutral-100 hover:text-primary-300">
-                                <span>{{ $page.props?.auth?.user?.name }}</span>
-
+                                <img :src="$page.props?.auth.user?.avatar" class="h-8 w-8 rounded-full object-cover object-center" alt="avatar">
 
                                 <svg :class="open ? '' : 'text-opacity-70'"
                                      class="ml-2 h-4 w-4 text-neutral-300 transition duration-150 ease-in-out group-hover:text-opacity-80"
@@ -47,7 +46,7 @@ import { Link } from '@inertiajs/inertia-vue3';
                               <transition enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-1 opacity-0"
                                           enter-to-class="translate-y-0 opacity-100" leave-active-class="transition duration-150 ease-in"
                                           leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-1 opacity-0">
-                                <PopoverPanel class="absolute z-10 mt-3 w-40 sm:px-0">
+                                <PopoverPanel class="absolute right-0.5 z-10 mt-3 w-40 sm:px-0">
                                   <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                     <div class="relative grid bg-neutral-800 py-2">
                                       <Link :href="route('logout')" method="post" as="button" class="flex flex-col p-2 transition duration-150 ease-in-out hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-opacity-50">

@@ -8,15 +8,11 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Comment extends Model
 {
     use HasFactory;
     use HasUlids;
     use HasHumanTimestamps;
-
-    protected $with = [
-        'author'
-    ];
 
     protected $appends = [
         'was_recently_updated',
@@ -24,19 +20,18 @@ class Thread extends Model
         'updated_at_for_humans'
     ];
 
-    public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $touches = [
+        'commentable',
+    ];
+
+    public function commenter(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->morphTo();
     }
 
-    public function board(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function commentable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
-        return $this->belongsTo(Board::class);
-    }
-
-    public function comments(): \Illuminate\Database\Eloquent\Relations\MorphMany
-    {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphTo();
     }
 
     public function wasRecentlyUpdated(): Attribute

@@ -2,6 +2,7 @@
 
 namespace Despawn\Http\Controllers\Auth;
 
+use App\Providers\RouteServiceProvider;
 use Despawn\Http\Controllers\Controller;
 use Despawn\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
@@ -9,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Providers\RouteServiceProvider;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      *
-     * @param LoginRequest $request
+     * @param  LoginRequest  $request
      * @return RedirectResponse
      */
     public function store(LoginRequest $request)
@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Destroy an authenticated session.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function destroy(Request $request)

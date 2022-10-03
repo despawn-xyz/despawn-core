@@ -23,7 +23,7 @@ Route::middleware('web')->group(function () {
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
         ]);
-    });
+    })->name('home');
 
     require __DIR__ . '/auth.php';
     require __DIR__ . '/forums.php';

@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require("tailwindcss/colors");
 
 const variableColor = (variable) => {
     const SCALE = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -35,8 +36,32 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: variableColor('primary'),
-                neutral: variableColor('neutral'),
+                primary: {
+                    DEFAULT: '#06BFFF',
+                    '50': '#BEEEFF',
+                    '100': '#A9E9FF',
+                    '200': '#80DEFF',
+                    '300': '#58D4FF',
+                    '400': '#2FC9FF',
+                    '500': '#06BFFF',
+                    '600': '#0098CD',
+                    '700': '#006F95',
+                    '800': '#00455D',
+                    '900': '#001B25'
+                },
+                neutral: {
+                    DEFAULT: '#353841',
+                    '50': '#B9BBC7',
+                    '100': '#ADB1BD',
+                    '200': '#979BAB',
+                    '300': '#808599',
+                    '400': '#6B7185',
+                    '500': '#595E6F',
+                    '600': '#474B58',
+                    '700': '#353841',
+                    '800': '#25272E',
+                    '900': '#15161A'
+                },
                 success: variableColor('primary'),
                 warning: variableColor('danger'),
                 danger: variableColor('danger'),

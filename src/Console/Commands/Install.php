@@ -54,7 +54,7 @@ class Install extends Command
     private function publishAssets()
     {
         $this->comment('Publishing fresh assets...');
-        $this->callSilent('vendor:publish', ['--tag' => 'despawn-assets']);
+        $this->callSilent('vendor:publish', ['--tag' => 'despawn-assets', '--force' => true]);
     }
 
     protected function setKeyInEnvironmentFile($key, $currentKey)

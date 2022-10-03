@@ -7,14 +7,14 @@
     <title inertia>{{ config('app.name', 'Despawn') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900">
 
     <!-- Scripts -->
     @routes
     @vite('resources/js/app.js', 'vendor/despawn/build')
     @inertiaHead
 </head>
-<body class="font-sans antialiased">
+<body class="relative font-sans antialiased motion-safe:transition min-h-full bg-neutral-900">
 @inertia
 </body>
 </html>

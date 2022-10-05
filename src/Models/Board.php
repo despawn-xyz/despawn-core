@@ -14,17 +14,17 @@ class Board extends Model
     use HasHumanTimestamps;
 
     protected $appends = [
-        ''
+        '',
     ];
 
     protected $casts = [
         'threads_count' => 'integer',
-        'comments_count' => 'integer'
+        'comments_count' => 'integer',
     ];
 
     protected $withCount = [
         'threads',
-        'comments'
+        'comments',
     ];
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo

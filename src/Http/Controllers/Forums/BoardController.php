@@ -11,7 +11,7 @@ class BoardController extends Controller
     public function show(Board $board)
     {
         return Inertia::render('Forums/Board/Index', [
-            'board' => $board->loadMissing('threads')
+            'board' => $board->loadMissing('threads'),
         ]);
     }
 }

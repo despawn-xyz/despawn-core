@@ -11,7 +11,7 @@ class CateogryController extends Controller
     public function show(Category $category)
     {
         return Inertia::render('Forums/Category/Index', [
-            'category' => $category->load('boards.threads')
+            'category' => $category->load('boards.threads'),
         ]);
     }
 }

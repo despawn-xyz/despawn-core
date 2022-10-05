@@ -19,7 +19,7 @@ class Thread extends Model
     ];
 
     protected $withCount = [
-        'comments'
+        'comments',
     ];
 
     protected $appends = [

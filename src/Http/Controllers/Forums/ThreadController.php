@@ -11,7 +11,7 @@ class ThreadController extends Controller
     public function show(Thread $thread)
     {
         return Inertia::render('Forums/Thread/Index', [
-            'thread' => $thread->loadMissing('author')
+            'thread' => $thread->loadMissing('author'),
         ]);
     }
 }

@@ -36,32 +36,8 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: {
-                    DEFAULT: '#06BFFF',
-                    '50': '#BEEEFF',
-                    '100': '#A9E9FF',
-                    '200': '#80DEFF',
-                    '300': '#58D4FF',
-                    '400': '#2FC9FF',
-                    '500': '#06BFFF',
-                    '600': '#0098CD',
-                    '700': '#006F95',
-                    '800': '#00455D',
-                    '900': '#001B25'
-                },
-                neutral: {
-                    DEFAULT: '#353841',
-                    '50': '#B9BBC7',
-                    '100': '#ADB1BD',
-                    '200': '#979BAB',
-                    '300': '#808599',
-                    '400': '#6B7185',
-                    '500': '#595E6F',
-                    '600': '#474B58',
-                    '700': '#353841',
-                    '800': '#25272E',
-                    '900': '#15161A'
-                },
+                primary: variableColor('primary'),
+                neutral: variableColor('neutral'),
                 success: variableColor('primary'),
                 warning: variableColor('danger'),
                 danger: variableColor('danger'),
@@ -71,7 +47,8 @@ module.exports = {
                 md: defaultTheme.fontSize.base
             },
             boxShadow: {
-                inset: '0px 0px 2px 0px rgb(0, 0, 0, 0.40);',
+                inset: '0px 0px 2px 0px rgb(0, 0, 0, 0.40)',
+                slim: '0 1px 3px rgba(0, 0, 0, .06),0 1px 2px rgba(0, 0, 0, 0.12)'
             },
             dropShadow: {
                 'colored-drop-shadow': '0 4px 4px rgba(var(--tw-shadow-color), 0.25)',

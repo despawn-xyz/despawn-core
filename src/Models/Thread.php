@@ -18,6 +18,10 @@ class Thread extends Model
         'author'
     ];
 
+    protected $withCount = [
+        'comments'
+    ];
+
     protected $appends = [
         'was_recently_updated',
         'created_at_for_humans',

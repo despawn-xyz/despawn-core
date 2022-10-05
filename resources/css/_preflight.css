@@ -1,19 +1,15 @@
 @layer base {
-    ::selection {
-        @apply bg-primary-500 bg-opacity-25;
-    }
-
     :root {
-        --neutral-50: 185,187,199;
-        --neutral-100: 173,177,189;
-        --neutral-200: 151,155,171;
-        --neutral-300: 128,133,153;
-        --neutral-400: 107,113,133;
-        --neutral-500: 89,94,111;
-        --neutral-600: 71,75,88;
-        --neutral-700: 53,56,65;
-        --neutral-800: 37,39,46;
-        --neutral-900: 21,22,26;
+        --neutral-50: 196,202,207;
+        --neutral-100: 182,189,195;
+        --neutral-200: 154,164,172;
+        --neutral-300: 126,139,149;
+        --neutral-400: 101,114,123;
+        --neutral-500: 78,88,95;
+        --neutral-600: 55,62,67;
+        --neutral-700: 32,36,39;
+        --neutral-800: 23,26,28;
+        --neutral-900: 14,15,17;
 
         --primary-50: 190,238,255;
         --primary-100: 169,233,255;
@@ -36,6 +32,10 @@
         --danger-700: 185, 28, 28;
         --danger-800: 153, 27, 27;
         --danger-900: 127, 29, 29;
+    }
+
+    ::selection {
+        background-color: rgba(var(--primary-500, 0.25));
     }
 
     html {

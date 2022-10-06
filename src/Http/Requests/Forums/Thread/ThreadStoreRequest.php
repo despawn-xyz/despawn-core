@@ -14,7 +14,7 @@ class ThreadStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return (boolean) $this->user();
+        return (bool) $this->user();
     }
 
     /**
@@ -25,19 +25,18 @@ class ThreadStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'min:1', "max:255"],
+            'title' => ['required', 'string', 'min:1', 'max:255'],
             'body' => ['required', 'string'],
             'slug' => ['required', 'string'],
-            'user_id' => ['required', 'exists:users,id']
+            'user_id' => ['required', 'exists:users,id'],
         ];
     }
-
 
     protected function prepareForValidation(): void
     {
         $this->merge([
             'slug' => Str::slug($this->request->get('title')),
-            'user_id' => $this->user()->id
+            'user_id' => $this->user()->id,
         ]);
     }
 }

@@ -1,7 +1,8 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('forums')->name('forums.')->group(function() {
+Route::prefix('forums')->name('forums.')->group(function () {
     Route::resource('category', \Despawn\Http\Controllers\Forums\CateogryController::class)
         ->only(['show']);
 

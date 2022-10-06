@@ -20,14 +20,14 @@ class ThreadController extends Controller
         return Inertia::render('Forums/Thread/Show', [
             'thread' => $thread->loadMissing('author'),
             'board' => $thread->board,
-            'category' => $thread->board->category
+            'category' => $thread->board->category,
         ]);
     }
 
     public function create(Board $board)
     {
         return Inertia::render('Forums/Thread/Create', [
-            'board' => $board
+            'board' => $board,
         ]);
     }
 

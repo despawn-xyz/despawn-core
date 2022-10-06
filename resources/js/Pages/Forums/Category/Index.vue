@@ -2,9 +2,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Cover from "@/Components/Cover.vue";
-import Container from "@/Components/Container.vue";
 import Card from "@/Components/Card/Card.vue";
-import CardHeader from "@/Components/Card/CardHeader.vue";
 import { ChatBubbleLeftEllipsisIcon } from "@heroicons/vue/24/outline"
 
 defineProps({
@@ -16,30 +14,30 @@ defineProps({
   <AuthenticatedLayout>
     <Head :title="$page.props.category.title" />
 
-    <Cover image="https://cdn.noclip.gg/Bxb0m98FxeYTnOpY/Rkbu_Fj_0ubnYp44mEgS4MocO0qR_m4c.jpg" />
+    <template #cover>
+      <Cover image="https://cdn.noclip.gg/Bxb0m98FxeYTnOpY/Rkbu_Fj_0ubnYp44mEgS4MocO0qR_m4c.jpg" />
+    </template>
 
-    <Container class="relative z-10">
-      <div class="w-full max-w-full px-6 py-32 text-center space-y-4">
-        <h1 class="text-3xl font-bold text-neutral-50 break-words">
+    <Card class="w-full text-left flex items-center justify-between p-4">
+      <div>
+        <h1 class="block text-xl font-bold text-neutral-50 break-words">
           {{ $page.props.category.title }}
         </h1>
 
-        <p class="text-neutral-200 break-words">
+        <p class="block text-neutral-400 break-words">
           {{ $page.props.category.description }}
         </p>
       </div>
-    </Container>
+    </Card>
 
-    <Container>
-      <div class="w-full grid grid-cols-6 md:grid-cols-12 gap-8">
-        <Card class="col-span-6" :key="board.id" v-for="board in $page.props.category.boards" divide>
-          <CardHeader>
-            <div class="relative flex flex-col z-10">
-              <Link :href="route('forums.board.show', board)" class="text-neutral-50 text-lg font-medium">{{ board.title }}</Link>
-              <p class="text-neutral-200 text-sm">{{ board.description }}</p>
-            </div>
-          </CardHeader>
+    <div class="w-full grid gap-y-4 pt-4">
+      <div :key="board.id" v-for="board in $page.props.category.boards">
+        <div class="relative flex flex-col z-10 py-2">
+          <Link :href="route('forums.board.show', board)" class="text-neutral-50 text-lg font-medium">{{ board.title }}</Link>
+          <p class="text-neutral-200 text-sm">{{ board.description }}</p>
+        </div>
 
+        <Card v-if="board.threads.length > 0" class="bg-neutral-700" divide>
           <div :key="thread.id" v-for="thread in board.threads" class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
             <div class="col-span-1 flex items-center justify-center">
               <div class="h-10 w-10 bg-primary-500/10 flex items-center justify-center rounded-full">
@@ -61,7 +59,14 @@ defineProps({
             </div>
           </div>
         </Card>
+        <Card v-else class="bg-neutral-700">
+          <div class="w-full p-2 flex items-center justify-center">
+            <p class="text-neutral-400">
+              There are no threads in this board, <Link class="text-primary-500">create one?</Link>
+            </p>
+          </div>
+        </Card>
       </div>
-    </Container>
+    </div>
   </AuthenticatedLayout>
 </template>

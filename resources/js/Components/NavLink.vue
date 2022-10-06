@@ -5,8 +5,8 @@ import { Link } from '@inertiajs/inertia-vue3';
 const props = defineProps(['href', 'active']);
 
 const classes = computed(() => props.active
-    ? 'text-base font-medium motion-safe:transition text-neutral-100 hover:text-neutral-300'
-    : 'text-base font-medium motion-safe:transition text-neutral-100 hover:text-neutral-300'
+    ? 'flex items-center px-2 font-medium motion-safe:transition text-white/60 hover:text-white'
+    : 'flex items-center px-2 font-medium motion-safe:transition text-white/60 hover:text-white'
 );
 </script>
 

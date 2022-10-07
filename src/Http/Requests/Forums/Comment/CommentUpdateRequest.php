@@ -15,7 +15,7 @@ class CommentUpdateRequest extends FormRequest
     public function authorize(): bool
     {
         // TODO: ensure user is author of comment
-        return (boolean) $this->user();
+        return (bool) $this->user();
     }
 
     /**

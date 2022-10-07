@@ -14,7 +14,7 @@ class CommentStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return (boolean) $this->user();
+        return (bool) $this->user();
     }
 
     /**
@@ -27,7 +27,7 @@ class CommentStoreRequest extends FormRequest
         return [
             'body' => ['required', 'string'],
             'commenter_id' => ['required', 'exists:users,id'],
-            'commenter_type' => ['required']
+            'commenter_type' => ['required'],
         ];
     }
 

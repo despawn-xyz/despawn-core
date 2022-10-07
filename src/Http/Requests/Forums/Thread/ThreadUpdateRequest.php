@@ -14,7 +14,7 @@ class ThreadUpdateRequest extends FormRequest
     public function authorize(): bool
     {
         // TODO: check if user owns thread
-        return (boolean) $this->user();
+        return (bool) $this->user();
     }
 
     /**
@@ -25,7 +25,7 @@ class ThreadUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'min:1', "max:255"],
+            'title' => ['required', 'string', 'min:1', 'max:255'],
             'body' => ['required', 'string'],
         ];
     }

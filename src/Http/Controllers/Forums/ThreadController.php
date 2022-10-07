@@ -39,13 +39,6 @@ class ThreadController extends Controller
         return to_route('forums.thread.show', $thread);
     }
 
-    public function edit(Thread $thread)
-    {
-        return Inertia::render('Forums/Thread/Edit', [
-            'thread' => $thread
-        ]);
-    }
-
     public function update(ThreadUpdateRequest $request, Thread $thread)
     {
         $thread->update($request->safe(['title', 'body']));

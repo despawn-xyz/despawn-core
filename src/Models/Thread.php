@@ -46,7 +46,7 @@ class Thread extends Model
     public function wasRecentlyUpdated(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->created_at->timestamp !== $this->updated_at->timestamp
+            get: fn () => $this->created_at->eq($this->updated_at)
         );
     }
 }

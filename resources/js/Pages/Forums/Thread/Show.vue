@@ -2,13 +2,14 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Cover from "@/Components/Cover.vue";
 import Card from "@/Components/Card/Card.vue";
-import {Head, Link, useForm} from "@inertiajs/inertia-vue3";
-import { ClockIcon, ChatBubbleLeftEllipsisIcon, ChevronLeftIcon, PencilIcon } from "@heroicons/vue/20/solid";
-import StaticEditor from "@/Components/StaticEditor.vue";
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import Editor from "@/Components/Editor.vue";
 import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import Post from "@/Components/Thread/Post.vue";
+import { ChatBubbleLeftEllipsisIcon, ChevronLeftIcon } from "@heroicons/vue/20/solid";
+import Comment from "@/Components/Thread/Comment.vue";
 
 const props = defineProps({
   thread: Object,
@@ -62,40 +63,7 @@ const submit = () => {
           </div>
         </aside>
 
-        <article class="flex flex-col">
-          <header class="flex items-center text-neutral-400 py-2 p-4">
-            <ClockIcon class="w-4 h-4" />
-
-            <p class="ml-1">
-              {{ $page.props.thread.created_at_for_humans }}
-
-              <template v-if="$page.props.thread.was_recently_edited">
-                - edited
-              </template>
-            </p>
-
-            <Link class="ml-auto text-neutral-50 hover:text-white" :href="`#${$page.props.thread.id}`">
-              #{{ $page.props.thread.id }}
-            </Link>
-          </header>
-
-          <div class="prose prose-neutral dark:prose-invert break-words whitespace-normal max-w-none flex-grow p-4">
-            <h1 class="block text-2xl font-bold text-neutral-50 break-words">
-              {{ $page.props.thread.title }}
-            </h1>
-
-            <StaticEditor :content="$page.props.thread.body" />
-          </div>
-
-          <footer class="p-4 flex col-span-full border-t border-neutral-200/5">
-            <div class="ml-auto flex items-center space-x-2">
-              <Link :href="route('forums.thread.edit', $page.props.thread)" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
-                <PencilIcon class="w-4 h-4 mr-2" />
-                Edit
-              </Link>
-            </div>
-          </footer>
-        </article>
+        <Post :thread="$page.props.thread" />
       </Card>
     </div>
 
@@ -119,46 +87,18 @@ const submit = () => {
           </div>
         </aside>
 
-        <article class="flex flex-col">
-          <header class="flex items-center text-neutral-400 py-2 p-4">
-            <ClockIcon class="w-4 h-4" />
-
-            <p class="ml-1">
-              {{ comment.created_at_for_humans }}
-
-              <template v-if="comment.was_recently_edited">
-                - edited
-              </template>
-            </p>
-
-            <Link class="ml-auto text-neutral-50 hover:text-white" :href="`#${comment.id}`">
-              #{{ comment.id }}
-            </Link>
-          </header>
-
-          <div class="prose prose-neutral dark:prose-invert break-words whitespace-normal max-w-none flex-grow p-4">
-            <StaticEditor :content="comment.body" />
-          </div>
-
-          <footer class="p-4 flex col-span-full border-t border-neutral-200/5">
-            <div class="ml-auto flex items-center space-x-2">
-              <Link class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
-                <PencilIcon class="w-4 h-4 mr-2" />
-                Edit Comment
-              </Link>
-            </div>
-          </footer>
-        </article>
+        <Comment :thread="$page.props.thread" :comment="comment" />
       </Card>
-
 
       <Card class="bg-neutral-700 shadow-slim p-2">
         <form @submit.prevent="submit">
-          <InputLabel value="Comment" />
-          <Editor v-model="form.body" />
-          <InputError :message="form.errors.body" />
+          <div class="space-y-2">
+            <InputLabel value="Comment" />
+            <Editor v-model="form.body" />
+            <InputError :message="form.errors.body" />
+          </div>
 
-          <PrimaryButton>
+          <PrimaryButton class="mt-4">
             Create Comment
           </PrimaryButton>
         </form>

@@ -14,7 +14,7 @@ const editor = useEditor({
   ],
   editorProps: {
     attributes: {
-      class: 'bg-neutral-600 border border-neutral-200/20 shadow-slim p-2 rounded-lg focus:border-primary-500 prose-p:text-neutral-100 prose prose-sm prose-neutral prose-invert focus:outline-none min-h-[10rem] transition'
+      class: 'bg-neutral-600 border border-neutral-200/20 shadow-slim p-2 rounded-lg focus:outline-none min-h-[10rem] transition max-w-none focus:border-primary-500 prose-p:text-neutral-100 prose prose-sm prose-neutral prose-invert prose-img:rounded-lg'
     }
   },
   onUpdate: ({editor}) => {

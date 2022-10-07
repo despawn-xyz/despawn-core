@@ -8,6 +8,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 import InputError from "@/Components/InputError.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import DeleteThreadForm from "@/Components/Thread/DeleteThreadForm.vue";
 
 const props = defineProps({
   thread: Object
@@ -81,10 +82,14 @@ const submit = () => {
           Cancel
         </button>
 
-        <button v-else type="button" @click="editing = true" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
-          <PencilIcon class="w-4 h-4 mr-2" />
-          Edit
-        </button>
+        <template v-else>
+          <button type="button" @click="editing = true" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+            <PencilIcon class="w-4 h-4 mr-2" />
+            Edit
+          </button>
+
+          <DeleteThreadForm :thread="$props.thread" />
+        </template>
       </div>
     </footer>
   </article>

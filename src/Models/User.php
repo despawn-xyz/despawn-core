@@ -4,6 +4,8 @@
 
 namespace Despawn\Models;
 
+use Despawn\Traits\Comments\HasComments;
+use Despawn\Traits\Forums\Thread\HasThreads;
 use Despawn\Traits\HasHumanTimestamps;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -20,10 +22,11 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
     use HasUlids;
     use HasHumanTimestamps;
+    use HasThreads;
+    use HasComments;
 
     protected $appends = [
         'avatar',
-        'threads_count',
         'created_at_for_humans',
         'updated_at_for_humans',
     ];
@@ -53,27 +56,10 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
-    public function threads(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Thread::class);
-    }
-
-    public function comments(): \Illuminate\Database\Eloquent\Relations\MorphMany
-    {
-        return $this->morphMany(Comment::class, 'commentable');
-    }
-
     public function avatar(): Attribute
     {
         return new Attribute(
             get: fn () => "https://source.boringavatars.com/beam/40/{$this->name}"
-        );
-    }
-
-    public function threadsCount(): Attribute
-    {
-        return new Attribute(
-            get: fn () => $this->hasMany(Thread::class)->count()
         );
     }
 }

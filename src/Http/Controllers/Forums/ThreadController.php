@@ -7,6 +7,7 @@ use Despawn\Http\Requests\Forums\Thread\ThreadStoreRequest;
 use Despawn\Http\Requests\Forums\Thread\ThreadUpdateRequest;
 use Despawn\Models\Board;
 use Despawn\Models\Thread;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class ThreadController extends Controller
@@ -44,5 +45,12 @@ class ThreadController extends Controller
         $thread->update($request->safe(['title', 'body']));
 
         return to_route('forums.thread.show', $thread);
+    }
+
+    public function destroy(Request $request, Thread $thread)
+    {
+        $thread->forceDelete();
+
+        return to_route('home');
     }
 }

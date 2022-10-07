@@ -4,6 +4,10 @@ namespace Despawn\Providers;
 
 use Despawn\Console\Commands\Install;
 use Despawn\Console\Commands\Update;
+use Despawn\Models\Comment;
+use Despawn\Models\Thread;
+use Despawn\Observers\CommentObserver;
+use Despawn\Observers\ThreadObserver;
 use Illuminate\Support\ServiceProvider;
 
 class DespawnServiceProvider extends ServiceProvider
@@ -13,6 +17,9 @@ class DespawnServiceProvider extends ServiceProvider
         $this->loadPublishers();
         $this->loadMergers();
         $this->loadCommands();
+
+        Thread::observe(ThreadObserver::class);
+        Comment::observe(CommentObserver::class);
     }
 
     private function loadPublishers(): void

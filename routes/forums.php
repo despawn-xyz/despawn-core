@@ -10,10 +10,10 @@ Route::prefix('forums')->name('forums.')->group(function () {
         ->only(['show']);
 
     Route::resource('board.thread', \Despawn\Http\Controllers\Forums\ThreadController::class)
-        ->only(['show', 'create', 'store', 'update'])
+        ->only(['show', 'create', 'store', 'update', 'destroy'])
         ->shallow();
 
     Route::resource('thread.comment', \Despawn\Http\Controllers\Forums\CommentController::class)
-        ->only(['store', 'update'])
+        ->only(['store', 'update', 'destroy'])
         ->shallow();
 });

@@ -7,6 +7,7 @@ use Despawn\Http\Requests\Forums\Comment\CommentStoreRequest;
 use Despawn\Http\Requests\Forums\Comment\CommentUpdateRequest;
 use Despawn\Models\Comment;
 use Despawn\Models\Thread;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -29,5 +30,12 @@ class CommentController extends Controller
         $comment->update($request->safe(['body']));
 
         return to_route('forums.thread.show', $comment->commentable);
+    }
+
+    public function destroy(Request $request, Comment $comment)
+    {
+        $comment->forceDelete();
+
+        return back();
     }
 }

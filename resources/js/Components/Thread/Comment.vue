@@ -5,9 +5,9 @@ import { ref } from "vue";
 import Editor from "@/Components/Editor.vue";
 import { ClockIcon, PencilIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/vue/20/solid";
 import InputLabel from "@/Components/InputLabel.vue";
-import TextInput from "@/Components/TextInput.vue";
 import InputError from "@/Components/InputError.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import DeleteCommentForm from "@/Components/Thread/DeleteCommentForm.vue";
 
 const props = defineProps({
   thread: Object,
@@ -71,10 +71,14 @@ const submit = () => {
           Cancel
         </button>
 
-        <button v-else type="button" @click="editing = true" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
-          <PencilIcon class="w-4 h-4 mr-2" />
-          Edit Comment
-        </button>
+        <template v-else>
+          <button type="button" @click="editing = true" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+            <PencilIcon class="w-4 h-4 mr-2" />
+            Edit Comment
+          </button>
+
+          <DeleteCommentForm :comment="$props.comment" />
+        </template>
       </div>
     </footer>
   </article>

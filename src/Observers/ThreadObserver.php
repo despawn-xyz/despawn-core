@@ -29,6 +29,6 @@ class ThreadObserver
 
     public function forceDeleted(Thread $thread)
     {
-        $thread->comments()->cursor()->each(fn(Comment $comment) => $comment->delete());
+        $thread->comments()->cursor()->each(fn (Comment $comment) => $comment->delete());
     }
 }

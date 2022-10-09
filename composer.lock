@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e16106765a704ea86c17aefa19cf271",
+    "content-hash": "42eadc293735e0819ecc90881de805f3",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -758,16 +758,16 @@
         },
         {
             "name": "filament/filament",
-            "version": "v2.16.20",
+            "version": "v2.16.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/admin.git",
-                "reference": "29c72342d4b3765e92d82db35d0e82b6ea89cfca"
+                "reference": "5fdacaa0a52f2f47fceb29538c88cbf398f2b6d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/admin/zipball/29c72342d4b3765e92d82db35d0e82b6ea89cfca",
-                "reference": "29c72342d4b3765e92d82db35d0e82b6ea89cfca",
+                "url": "https://api.github.com/repos/filamentphp/admin/zipball/5fdacaa0a52f2f47fceb29538c88cbf398f2b6d1",
+                "reference": "5fdacaa0a52f2f47fceb29538c88cbf398f2b6d1",
                 "shasum": ""
             },
             "require": {
@@ -817,20 +817,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2022-10-04T16:16:58+00:00"
+            "time": "2022-10-08T21:36:10+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v2.16.20",
+            "version": "v2.16.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "9e0eab4598993b3c324fc7f16ed9ddaa0f0044c0"
+                "reference": "987c61f4fc6e0d0f0fdebeaa10fa92ba0015d8ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/9e0eab4598993b3c324fc7f16ed9ddaa0f0044c0",
-                "reference": "9e0eab4598993b3c324fc7f16ed9ddaa0f0044c0",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/987c61f4fc6e0d0f0fdebeaa10fa92ba0015d8ea",
+                "reference": "987c61f4fc6e0d0f0fdebeaa10fa92ba0015d8ea",
                 "shasum": ""
             },
             "require": {
@@ -875,20 +875,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2022-10-04T16:16:48+00:00"
+            "time": "2022-10-08T21:36:08+00:00"
         },
         {
             "name": "filament/notifications",
-            "version": "v2.16.20",
+            "version": "v2.16.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
-                "reference": "466ea57d8744f834e4c2bcf30bf66e7b82c41e89"
+                "reference": "d4ce73aaf998f8472f2526ecdcbb55cffea8de8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/466ea57d8744f834e4c2bcf30bf66e7b82c41e89",
-                "reference": "466ea57d8744f834e4c2bcf30bf66e7b82c41e89",
+                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/d4ce73aaf998f8472f2526ecdcbb55cffea8de8b",
+                "reference": "d4ce73aaf998f8472f2526ecdcbb55cffea8de8b",
                 "shasum": ""
             },
             "require": {
@@ -925,20 +925,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2022-09-30T09:40:22+00:00"
+            "time": "2022-10-08T21:36:11+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v2.16.20",
+            "version": "v2.16.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "a6f4b2a0d63c9d01f05882d660abfdfc3df0703a"
+                "reference": "df9bf5d3eb78840b5e9ff7fc03c1ca16c408fd88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/a6f4b2a0d63c9d01f05882d660abfdfc3df0703a",
-                "reference": "a6f4b2a0d63c9d01f05882d660abfdfc3df0703a",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/df9bf5d3eb78840b5e9ff7fc03c1ca16c408fd88",
+                "reference": "df9bf5d3eb78840b5e9ff7fc03c1ca16c408fd88",
                 "shasum": ""
             },
             "require": {
@@ -975,20 +975,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2022-10-04T16:16:45+00:00"
+            "time": "2022-10-08T21:36:10+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v2.16.20",
+            "version": "v2.16.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "e7a3dcc5d3737b70aa46f7b7b3ffa7fed3e642a0"
+                "reference": "e7b5d6649c54f38b5553896237fa23150aee6774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/e7a3dcc5d3737b70aa46f7b7b3ffa7fed3e642a0",
-                "reference": "e7a3dcc5d3737b70aa46f7b7b3ffa7fed3e642a0",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/e7b5d6649c54f38b5553896237fa23150aee6774",
+                "reference": "e7b5d6649c54f38b5553896237fa23150aee6774",
                 "shasum": ""
             },
             "require": {
@@ -1031,7 +1031,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2022-10-04T16:16:49+00:00"
+            "time": "2022-10-08T21:36:10+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -4223,6 +4223,130 @@
                 }
             ],
             "time": "2022-09-02T11:04:28+00:00"
+        },
+        {
+            "name": "socialiteproviders/manager",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Manager.git",
+                "reference": "738276dfbc2b68a9145db7b3df1588d53db528a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/738276dfbc2b68a9145db7b3df1588d53db528a1",
+                "reference": "738276dfbc2b68a9145db7b3df1588d53db528a1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "laravel/socialite": "~5.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^6.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SocialiteProviders\\Manager\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Wendt",
+                    "email": "andy@awendt.com"
+                },
+                {
+                    "name": "Anton Komarev",
+                    "email": "a.komarev@cybercog.su"
+                },
+                {
+                    "name": "Miguel Piedrafita",
+                    "email": "soy@miguelpiedrafita.com"
+                },
+                {
+                    "name": "atymic",
+                    "email": "atymicq@gmail.com",
+                    "homepage": "https://atymic.dev"
+                }
+            ],
+            "description": "Easily add new or override built-in providers in Laravel Socialite.",
+            "homepage": "https://socialiteproviders.com",
+            "keywords": [
+                "laravel",
+                "manager",
+                "oauth",
+                "providers",
+                "socialite"
+            ],
+            "support": {
+                "issues": "https://github.com/socialiteproviders/manager/issues",
+                "source": "https://github.com/socialiteproviders/manager"
+            },
+            "time": "2022-09-02T10:20:10+00:00"
+        },
+        {
+            "name": "socialiteproviders/steam",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Steam.git",
+                "reference": "922f82a26fb7243d7e7ff2ec8ba7e957e7b9eeb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Steam/zipball/922f82a26fb7243d7e7ff2ec8ba7e957e7b9eeb7",
+                "reference": "922f82a26fb7243d7e7ff2ec8ba7e957e7b9eeb7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2 || ^8.0",
+                "socialiteproviders/manager": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Steam\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Eklund",
+                    "email": "eklundchristopher@gmail.com"
+                }
+            ],
+            "description": "Steam OpenID Provider for Laravel Socialite",
+            "keywords": [
+                "OpenId",
+                "laravel",
+                "provider",
+                "socialite",
+                "steam"
+            ],
+            "support": {
+                "docs": "https://socialiteproviders.com/steam",
+                "issues": "https://github.com/socialiteproviders/providers/issues",
+                "source": "https://github.com/socialiteproviders/providers"
+            },
+            "time": "2022-03-28T22:38:40+00:00"
         },
         {
             "name": "spatie/image",

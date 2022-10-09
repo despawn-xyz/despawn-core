@@ -54,3 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+
+Route::get('oauth/{provider}', [\Despawn\Http\Controllers\Auth\OAuthController::class, 'redirect'])
+    ->name('oauth.redirect');
+
+Route::get('oauth/{provider}/callback', [\Despawn\Http\Controllers\Auth\OAuthController::class, 'callback'])
+    ->name('oauth.callback');

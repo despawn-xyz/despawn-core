@@ -1,18 +1,18 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/inertia-vue3';
+import Card from "@/Components/Card/Card.vue";
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-neutral-900 text-base space-y-4">
         <div>
-            <Link href="/public">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
+            <Link :href="route('home')">
+              <img src="https://cdn.noclip.gg/ZwrHIowmadgLm2pr/oZq4yj6CzV6h5hl8FdCJpde0-xu-X8Fg.png" alt="kings" class="object-contain select-none pointer-events-none m-auto w-24 h-24 rounded" loading="lazy">
             </Link>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            <slot />
-        </div>
+      <Card class="bg-neutral-800 shadow-slim p-4 w-full max-w-sm">
+        <slot />
+      </Card>
     </div>
 </template>

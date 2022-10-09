@@ -4,11 +4,12 @@ defineProps({
         type: String,
         default: 'submit',
     },
+  is: {}
 });
 </script>
 
 <template>
-    <button :type="type" class="inline-flex items-center justify-center bg-neural-600 border border-neural-500/50 rounded shadow-slim p-2 font-medium text-neural-50 hover:text-white">
+    <component :is="is" :type="type" class="inline-flex items-center justify-center bg-neutral-600 border border-neutral-500/50 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
         <slot />
-    </button>
+    </component>
 </template>

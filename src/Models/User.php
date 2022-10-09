@@ -11,6 +11,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -50,16 +51,22 @@ class User extends Authenticatable implements FilamentUser
         'email_verified_at' => 'datetime',
     ];
 
+    public function connectedAccounts(): HasMany
+    {
+        return $this->hasMany(ConnectedAccount::class);
+    }
+
     public function canAccessFilament(): bool
     {
         // TODO: Update this for production
         return true;
     }
 
-    public function avatar(): Attribute
+    public function getAvatarAttribute()
     {
-        return new Attribute(
-            get: fn () => "https://source.boringavatars.com/beam/40/{$this->name}"
-        );
+        return match (true) {
+            isset($this->connectedAccounts()?->first()?->avatar_path) => $this->connectedAccounts()?->first()?->avatar_path,
+            default => "https://source.boringavatars.com/beam/40/{$this->name}"
+        };
     }
 }

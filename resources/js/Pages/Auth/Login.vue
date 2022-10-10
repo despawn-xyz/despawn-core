@@ -62,11 +62,19 @@ const submit = () => {
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
-
-              <SecondaryButton is="a" :href="route('oauth.redirect', 'steam')">
-                sign in through steam
-              </SecondaryButton>
             </div>
         </form>
+
+      <hr class="my-4 border-neutral-200/5">
+
+      <div class="mt-6">
+        <SecondaryButton class="w-full" is="a" :href="route('oauth.redirect', 'steam')">
+          sign in through steam
+        </SecondaryButton>
+
+        <p class="text-neutral-400 text-center mt-2">
+          You will be redirected when signing in through Steam or Discord.
+        </p>
+      </div>
     </GuestLayout>
 </template>

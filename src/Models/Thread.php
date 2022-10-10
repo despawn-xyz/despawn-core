@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Thread extends Model
 {
     use HasFactory;
     use HasUlids;
     use HasHumanTimestamps;
+    use HasSlug;
 
     protected $with = [
         'author',
@@ -27,6 +30,15 @@ class Thread extends Model
         'created_at_for_humans',
         'updated_at_for_humans',
     ];
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50)
+            ->doNotGenerateSlugsOnUpdate();
+    }
 
     public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

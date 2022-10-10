@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 const form = useForm({
     name: '',
@@ -60,5 +61,17 @@ const submit = () => {
           </PrimaryButton>
         </div>
       </form>
+
+      <hr class="my-4 border-neutral-200/5">
+
+      <div class="mt-6">
+        <SecondaryButton class="w-full" is="a" :href="route('oauth.redirect', 'steam')">
+          sign in through steam
+        </SecondaryButton>
+
+        <p class="text-neutral-400 text-center mt-2">
+          You will be redirected when signing in through Steam or Discord.
+        </p>
+      </div>
     </GuestLayout>
 </template>

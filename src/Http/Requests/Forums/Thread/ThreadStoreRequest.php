@@ -35,7 +35,6 @@ class ThreadStoreRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'slug' => Str::slug($this->request->get('title')),
             'user_id' => $this->user()->id,
         ]);
     }

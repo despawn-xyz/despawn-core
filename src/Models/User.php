@@ -8,13 +8,14 @@ use Despawn\Traits\Comments\HasComments;
 use Despawn\Traits\Forums\Thread\HasThreads;
 use Despawn\Traits\HasHumanTimestamps;
 use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -25,6 +26,7 @@ class User extends Authenticatable implements FilamentUser
     use HasHumanTimestamps;
     use HasThreads;
     use HasComments;
+    use HasSlug;
 
     protected $appends = [
         'avatar',
@@ -50,6 +52,15 @@ class User extends Authenticatable implements FilamentUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50)
+            ->doNotGenerateSlugsOnUpdate();
+    }
 
     public function connectedAccounts(): HasMany
     {

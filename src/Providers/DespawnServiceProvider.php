@@ -3,12 +3,14 @@
 namespace Despawn\Providers;
 
 use Despawn\Console\Commands\Install;
+use Despawn\Console\Commands\Setup;
 use Despawn\Console\Commands\Update;
 use Despawn\Models\Comment;
 use Despawn\Models\Thread;
 use Despawn\Observers\CommentObserver;
 use Despawn\Observers\ThreadObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rules\Password;
 
 class DespawnServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class DespawnServiceProvider extends ServiceProvider
         $this->loadPublishers();
         $this->loadMergers();
         $this->loadCommands();
+        $this->loadPasswordDefaults();
 
         Thread::observe(ThreadObserver::class);
         Comment::observe(CommentObserver::class);
@@ -56,6 +59,16 @@ class DespawnServiceProvider extends ServiceProvider
         $this->commands([
             Install::class,
             Update::class,
+            Setup::class
         ]);
+    }
+
+    private function loadPasswordDefaults()
+    {
+        Password::defaults(function () {
+            $rule = Password::min(8);
+
+            return $rule->mixedCase()->uncompromised();
+        });
     }
 }

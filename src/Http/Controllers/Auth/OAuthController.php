@@ -70,7 +70,6 @@ class OAuthController extends Controller
         $user = User::create([
             'name' => $driverUser->getNickname(),
             'email' => $driverUser->getEmail() ?? $driverUser->getNickname().'@' . $driver,
-            'slug' => Str::slug($driverUser->getNickname())
         ]);
 
         return $user;

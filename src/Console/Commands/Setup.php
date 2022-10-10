@@ -26,7 +26,7 @@ class Setup extends Command
     {
         $this->comment('Setting up default forums...');
 
-        DB::transaction(fn() => $this->createModels(), 3);
+        DB::transaction(fn () => $this->createModels(), 3);
 
         $this->comment('Despawn default forums setup!');
     }

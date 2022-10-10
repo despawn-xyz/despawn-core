@@ -3,7 +3,6 @@
 namespace Despawn\Http\Requests\Forums\Thread;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
 class ThreadStoreRequest extends FormRequest
 {

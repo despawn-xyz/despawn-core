@@ -6,12 +6,9 @@ use Despawn\Http\Controllers\Controller;
 use Despawn\Models\ConnectedAccount;
 use Despawn\Models\User;
 use Exception;
-use App\Http\RouteServiceProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
@@ -27,7 +24,7 @@ class OAuthController extends Controller
             return Socialite::driver($provider)->redirect();
         }
 
-        throw new Exception('Provider: ' . $provider  . ' does not exist.');
+        throw new Exception('Provider: ' . $provider . ' does not exist.');
     }
 
     /**
@@ -52,6 +49,7 @@ class OAuthController extends Controller
             }
 
             Auth::login($connectedAccount->user);
+
             return to_route('home');
         }
 
@@ -59,6 +57,7 @@ class OAuthController extends Controller
         $this->createConnectedAccountFromDriver($driver, $account, $user);
 
         Auth::login($user);
+
         return to_route('home');
     }
 
@@ -69,7 +68,7 @@ class OAuthController extends Controller
     {
         $user = User::create([
             'name' => $driverUser->getNickname(),
-            'email' => $driverUser->getEmail() ?? $driverUser->getNickname().'@' . $driver,
+            'email' => $driverUser->getEmail() ?? $driverUser->getNickname() . '@' . $driver,
         ]);
 
         return $user;

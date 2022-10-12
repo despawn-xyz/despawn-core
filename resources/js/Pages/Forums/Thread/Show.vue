@@ -36,18 +36,18 @@ const submit = () => {
 
     <div class="space-y-4">
       <div class="w-full flex items-center justify-between">
-        <Link :href="route('forums.board.show', board)" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+        <Link :href="route('forums.board.show', board)" class="flex items-center justify-center bg-gray-600 border border-gray-200/20 rounded shadow-slim p-2 font-medium text-gray-50 hover:text-white">
           <ChevronLeftIcon class="w-4 h-4 mr-1" />
           Back to {{ $page.props.board.title }}
         </Link>
 
-        <Link class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+        <Link class="flex items-center justify-center bg-gray-600 border border-gray-200/20 rounded shadow-slim p-2 font-medium text-gray-50 hover:text-white">
           <ChatBubbleLeftEllipsisIcon class="w-4 h-4 mr-2" />
           Comment
         </Link>
       </div>
-      <Card class="w-full h-full grid grid-cols-1 md:grid-cols-[200px,minmax(900px,1fr)] shadow-slim bg-neutral-700">
-        <aside class="relative isolate overflow-hidden w-full h-full md:min-h-[22rem] p-4 md:border-r border-neutral-200/5 motion-safe:transition rounded-tl-lg">
+      <Card class="w-full h-full grid grid-cols-1 md:grid-cols-[200px,minmax(900px,1fr)] shadow-slim bg-gray-800">
+        <aside class="relative isolate overflow-hidden w-full h-full md:min-h-[22rem] p-4 md:border-r border-gray-200/5 motion-safe:transition rounded-tl-lg">
           <div class="relative flex flex-col items-center break-words">
             <div>
               <Link class="flex items-center text-white font-medium text-lg">
@@ -67,11 +67,11 @@ const submit = () => {
       </Card>
     </div>
 
-    <hr class="my-8 border-neutral-200/20">
+    <hr class="my-8 border-gray-200/20">
 
     <div class="space-y-4">
-      <Card v-for="comment in $page.props.thread.comments" class="w-full h-full grid grid-cols-1 md:grid-cols-[200px,minmax(900px,1fr)] shadow-slim bg-neutral-700">
-        <aside class="relative isolate overflow-hidden w-full h-full md:min-h-[22rem] p-4 md:border-r border-neutral-200/5 motion-safe:transition rounded-tl-lg">
+      <Card v-for="comment in $page.props.thread.comments" class="w-full h-full grid grid-cols-1 md:grid-cols-[200px,minmax(900px,1fr)] shadow-slim bg-gray-700">
+        <aside class="relative isolate overflow-hidden w-full h-full md:min-h-[22rem] p-4 md:border-r border-gray-200/5 motion-safe:transition rounded-tl-lg">
           <div class="relative flex flex-col items-center break-words">
             <div>
               <Link class="flex items-center text-white font-medium text-lg">
@@ -90,7 +90,7 @@ const submit = () => {
         <Comment :thread="$page.props.thread" :comment="comment" />
       </Card>
 
-      <Card class="bg-neutral-700 shadow-slim p-2">
+      <Card class="bg-gray-700 shadow-slim p-2">
         <form @submit.prevent="submit">
           <div class="space-y-2">
             <InputLabel value="Comment" />

@@ -24,10 +24,10 @@ defineProps({
         <div class="w-full col-span-12 md:col-span-8 space-y-4">
           <div :key="category.id" v-for="category in $page.props.categories">
             <div class="relative flex flex-col p-2">
-              <Link :href="route('forums.category.show', category)" class="text-white text-lg font-medium">{{ category.title }}</Link>
+              <Link :href="route('forums.category.show', category)" class="text-gray-50 text-lg font-medium">{{ category.title }}</Link>
             </div>
 
-            <Card class="bg-neutral-700 shadow-slim" divide>
+            <Card class="bg-gray-800 shadow-slim" divide>
               <div :key="board.id" v-for="board in category.boards" class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
                 <div class="col-span-1 flex items-center justify-center p-2">
                   <div class="h-10 w-10 bg-primary-500/10 flex items-center justify-center rounded-full">
@@ -39,7 +39,7 @@ defineProps({
                   <Link :href="route('forums.board.show', board)" class="font-medium text-white">
                     {{ board.title }}
                   </Link>
-                  <p class="text-neutral-300 truncate w-full">
+                  <p class="text-gray-300 truncate w-full">
                     {{ board.description }}
                   </p>
                 </div>
@@ -48,7 +48,7 @@ defineProps({
                   <p class="font-medium text-primary-500">
                     {{ board.threads_count }}
                   </p>
-                  <h6 class="text-neutral-400 text-xs">
+                  <h6 class="text-gray-400 text-xs">
                     Threads
                   </h6>
                 </div>
@@ -58,14 +58,14 @@ defineProps({
                     <Link :href="route('forums.thread.show', board?.latest_thread)" class="block font-medium text-white truncate">
                       {{ board?.latest_thread?.title }}
                     </Link>
-                    <span class="w-full truncate text-neutral-400">
-                      <Link class="text-white">
+                    <span class="w-full truncate text-gray-400">
+                      <Link class="text-gray-50">
                         {{ board?.latest_thread?.author?.name }}
                       </Link>
                       , {{ board?.latest_thread?.created_at_for_humans }}
                     </span>
 
-                    <img :src="board?.latest_thread?.author?.avatar" alt="" loading="lazy" class="object-cover select-none pointer-events-none rounded-full absolute -bottom-12 -right-6 h-32 w-32 opacity-10">
+                    <img :src="board?.latest_thread?.author?.avatar" alt="" loading="lazy" class="object-cover select-none pointer-events-none rounded-full absolute -bottom-10 -right-6 h-32 w-32 opacity-10">
                   </template>
                 </div>
               </div>
@@ -75,17 +75,17 @@ defineProps({
 
         <div class="w-full col-span-12 md:col-span-4">
           <div class="relative flex flex-col p-2">
-            <h4 class="text-white text-lg font-medium">Latest Threads</h4>
+            <h4 class="text-gray-100 text-lg font-medium">Latest Threads</h4>
           </div>
 
-          <Card class="bg-neutral-700 shadow-slim" divide>
+          <Card class="bg-gray-800 shadow-slim" divide>
             <div :key="thread.id" v-for="thread in $page.props.latest_threads" class="relative overflow-hidden grid grid-cols-6 md:grid-cols-12 auto-cols-max">
               <div class="col-span-3 md:col-span-10 flex flex-col items-start justify-center p-2">
                 <Link :href="route('forums.thread.show', thread)" class="text-white">
                   {{ thread.title }}
                 </Link>
 
-                <p class="text-neutral-400 truncate w-full text-xs">
+                <p class="text-gray-400 truncate w-full text-xs">
                   {{ thread.created_at_for_humans }} {{ thread.was_recently_updated ? ' - updated' : null}}
                 </p>
               </div>

@@ -65,14 +65,14 @@ const submit = () => {
             </div>
         </form>
 
-      <hr class="my-4 border-neutral-200/5">
+      <hr class="my-4 border-gray-200/5">
 
       <div class="mt-6">
         <SecondaryButton class="w-full" is="a" :href="route('oauth.redirect', 'steam')">
           sign in through steam
         </SecondaryButton>
 
-        <p class="text-neutral-400 text-center mt-2">
+        <p class="text-gray-400 text-center mt-2">
           You will be redirected when signing in through Steam or Discord.
         </p>
       </div>

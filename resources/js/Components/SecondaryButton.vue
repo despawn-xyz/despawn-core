@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <component :is="is" :type="type" class="inline-flex items-center justify-center bg-neutral-600 border border-neutral-500/50 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+    <component :is="is" :type="type" class="inline-flex items-center justify-center bg-gray-600 border border-gray-500/50 rounded shadow-slim p-2 font-medium text-gray-50 hover:text-white">
         <slot />
     </component>
 </template>

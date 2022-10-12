@@ -14,7 +14,7 @@
     @vite('resources/js/app.js', 'vendor/despawn/build')
     @inertiaHead
 </head>
-<body class="relative font-sans antialiased motion-safe:transition min-h-full bg-neutral-900">
+<body class="relative font-sans antialiased motion-safe:transition min-h-full bg-gray-900">
 @inertia
 </body>
 </html>

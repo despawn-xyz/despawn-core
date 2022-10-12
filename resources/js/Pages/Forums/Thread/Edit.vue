@@ -29,12 +29,12 @@ const submit = () => {
         <h1 class="font-bold text-2xl text-white">
            Edit Thread: {{ $page.props.thread.title }}
         </h1>
-        <p class="text-neutral-400">
+        <p class="text-gray-400">
           Updating a thread will show that it's been edited.
         </p>
       </div>
 
-      <Card class="bg-neutral-700 shadow-slim p-4">
+      <Card class="bg-gray-700 shadow-slim p-4">
         <form @submit.prevent="submit" class="space-y-4">
           <div class="space-y-2">
             <InputLabel value="title" />

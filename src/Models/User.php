@@ -14,10 +14,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasMedia
 {
     use HasApiTokens;
     use HasFactory;
@@ -27,6 +29,7 @@ class User extends Authenticatable implements FilamentUser
     use HasThreads;
     use HasComments;
     use HasSlug;
+    use InteractsWithMedia;
 
     protected $appends = [
         'avatar',
@@ -76,8 +79,16 @@ class User extends Authenticatable implements FilamentUser
     public function getAvatarAttribute()
     {
         return match (true) {
-            isset($this->connectedAccounts()?->first()?->avatar_path) => $this->connectedAccounts()?->first()?->avatar_path,
+            ! empty($this->getFirstMediaUrl('avatar')) => $this->getFirstMediaUrl('avatar'),
+            ! empty($this->connectedAccounts()?->first()?->avatar_path) => $this->connectedAccounts()?->first()?->avatar_path,
             default => "https://source.boringavatars.com/beam/40/{$this->name}"
         };
+    }
+
+    public function registerMediaCollections(): void
+    {
+        // TODO: switch back to S3 when available
+        $this->addMediaCollection('avatar')
+            ->singleFile();
     }
 }

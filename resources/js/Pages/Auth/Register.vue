@@ -52,7 +52,7 @@ const submit = () => {
         </div>
 
         <div class="flex items-center justify-end mt-4">
-          <Link :href="route('login')" class="underline text-sm text-neutral-600 hover:text-primary-500">
+          <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-primary-500">
             Already registered?
           </Link>
 
@@ -62,14 +62,14 @@ const submit = () => {
         </div>
       </form>
 
-      <hr class="my-4 border-neutral-200/5">
+      <hr class="my-4 border-gray-200/5">
 
       <div class="mt-6">
         <SecondaryButton class="w-full" is="a" :href="route('oauth.redirect', 'steam')">
           sign in through steam
         </SecondaryButton>
 
-        <p class="text-neutral-400 text-center mt-2">
+        <p class="text-gray-400 text-center mt-2">
           You will be redirected when signing in through Steam or Discord.
         </p>
       </div>

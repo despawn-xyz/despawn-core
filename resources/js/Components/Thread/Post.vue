@@ -32,7 +32,7 @@ const submit = () => {
 
 <template>
   <article class="flex flex-col">
-    <header class="flex items-center text-neutral-400 py-2 p-4">
+    <header class="flex items-center text-gray-400 py-2 p-4">
       <ClockIcon class="w-4 h-4" />
 
       <p class="ml-1">
@@ -43,13 +43,13 @@ const submit = () => {
         </template>
       </p>
 
-      <Link class="ml-auto text-neutral-50 hover:text-white" :href="`#${$props.thread.id}`">
+      <Link class="ml-auto text-gray-50 hover:text-white" :href="`#${$props.thread.id}`">
         #{{ $props.thread.id }}
       </Link>
     </header>
 
-    <div v-if="editing === false" class="prose prose-neutral dark:prose-invert break-words whitespace-normal max-w-none flex-grow p-4">
-      <h1 class="block text-2xl font-bold text-neutral-50 break-words">
+    <div v-if="editing === false" class="prose prose-gray dark:prose-invert break-words whitespace-normal max-w-none flex-grow p-4">
+      <h1 class="block text-2xl font-bold text-gray-50 break-words">
         {{ $props.thread.title }}
       </h1>
 
@@ -75,15 +75,15 @@ const submit = () => {
       </PrimaryButton>
     </form>
 
-    <footer class="p-4 flex col-span-full border-t border-neutral-200/5">
+    <footer class="p-4 flex col-span-full border-t border-gray-200/5">
       <div class="ml-auto flex items-center space-x-2">
-        <button v-if="editing" type="button" @click="editing = false" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+        <button v-if="editing" type="button" @click="editing = false" class="flex items-center justify-center bg-gray-600 border border-gray-200/20 rounded shadow-slim p-2 font-medium text-gray-50 hover:text-white">
           <XCircleIcon class="w-4 h-4 mr-2" />
           Cancel
         </button>
 
         <template v-else>
-          <button type="button" @click="editing = true" class="flex items-center justify-center bg-neutral-600 border border-neutral-200/20 rounded shadow-slim p-2 font-medium text-neutral-50 hover:text-white">
+          <button type="button" @click="editing = true" class="flex items-center justify-center bg-gray-600 border border-gray-200/20 rounded shadow-slim p-2 font-medium text-gray-50 hover:text-white">
             <PencilIcon class="w-4 h-4 mr-2" />
             Edit
           </button>

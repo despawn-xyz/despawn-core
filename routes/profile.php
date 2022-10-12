@@ -3,7 +3,7 @@
 use Despawn\Http\Controllers\Profile\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['web', 'auth:sanctum'])->group(function() {
+Route::middleware(['web', 'auth:sanctum'])->group(function () {
     Route::get('/profile', [UserProfileController::class, 'show'])
         ->name('profile.show');
 

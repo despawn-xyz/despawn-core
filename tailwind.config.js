@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require("tailwindcss/colors");
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -82,11 +83,8 @@ module.exports = {
                 md: defaultTheme.fontSize.base
             },
             boxShadow: {
-                inset: '0px 0px 2px 0px rgb(0, 0, 0, 0.40)',
-                slim: '0 1px 3px rgba(0, 0, 0, .06),0 1px 2px rgba(0, 0, 0, 0.12)'
-            },
-            dropShadow: {
-                'colored-drop-shadow': '0 4px 4px rgba(var(--tw-shadow-color), 0.25)',
+                inset: '0px 0px 2px 0px rgb(0 0 0 / 0.40)',
+                slim: '0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.12)'
             },
             transitionDuration: {
                 DEFAULT: '250ms'
@@ -97,5 +95,12 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        plugin(function ({ addUtilities, matchUtilities, theme }) {
+            addUtilities({
+                '.text-shadow': {
+                    'text-shadow': 'rgb(0 0 0 / 0.5) 0 0 2px'
+                },
+            });
+        }),
     ],
 };

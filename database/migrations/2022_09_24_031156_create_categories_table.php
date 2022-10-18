@@ -20,6 +20,9 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->boolean('locked')->default(false);
             $table->unsignedInteger('weight')->default(0);
+            $table->boolean('private')->default(false);
+            $table->json('allowed_roles')->nullable();
+            $table->json('allowed_users')->nullable();
             $table->timestamps();
         });
     }

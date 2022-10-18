@@ -5,12 +5,15 @@ namespace Despawn\Providers;
 use Despawn\Console\Commands\Install;
 use Despawn\Console\Commands\Setup;
 use Despawn\Console\Commands\Update;
+use Despawn\Models\Ability;
 use Despawn\Models\Comment;
+use Despawn\Models\Role;
 use Despawn\Models\Thread;
 use Despawn\Observers\CommentObserver;
 use Despawn\Observers\ThreadObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Silber\Bouncer\BouncerFacade;
 
 class DespawnServiceProvider extends ServiceProvider
 {
@@ -20,9 +23,6 @@ class DespawnServiceProvider extends ServiceProvider
         $this->loadMergers();
         $this->loadCommands();
         $this->loadPasswordDefaults();
-
-        Thread::observe(ThreadObserver::class);
-        Comment::observe(CommentObserver::class);
     }
 
     private function loadPublishers(): void
@@ -32,7 +32,7 @@ class DespawnServiceProvider extends ServiceProvider
         ], 'despawn-views');
 
         $this->publishes([
-            __DIR__ . '/../../config/despawn.php' => config_path('despawn.php'),
+            __DIR__ . '/../../config/despawn-core.php' => config_path('despawn-core.php'),
         ], 'despawn-config');
 
         $this->publishes([
@@ -43,8 +43,8 @@ class DespawnServiceProvider extends ServiceProvider
     private function loadMergers()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/despawn.php',
-            'despawn'
+            __DIR__ . '/../../config/despawn-core.php',
+            'despawn-core'
         );
 
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');

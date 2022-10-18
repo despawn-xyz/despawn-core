@@ -20,6 +20,11 @@ class Category extends Model
         'updated_at_for_humans',
     ];
 
+    protected $casts = [
+        'allowed_users' => 'array',
+        'allowed_roles' => 'array'
+    ];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

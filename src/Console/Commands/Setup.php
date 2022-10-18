@@ -5,6 +5,7 @@ namespace Despawn\Console\Commands;
 use Despawn\Models\Category;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Silber\Bouncer\BouncerFacade as Bouncer;
 
 class Setup extends Command
 {
@@ -27,6 +28,10 @@ class Setup extends Command
         $this->comment('Setting up default forums...');
 
         DB::transaction(fn () => $this->createModels(), 3);
+
+        $this->comment('Setting up default roles...');
+
+        DB::transaction(fn () => $this->createRoles(), 3);
 
         $this->comment('Despawn default forums setup!');
     }
@@ -65,5 +70,28 @@ class Setup extends Command
             'description' => 'New to the forums? Please introduce yourself here! We\'d love to know who you are!',
             'weight' => 2,
         ]);
+    }
+
+    private function createRoles()
+    {
+        $superadmin = Bouncer::role()->firstOrCreate([
+            'name' => 'superadmin',
+            'title' => 'Super Admin',
+            'level' => 999
+        ]);
+
+        $banned = Bouncer::role()->firstOrCreate([
+            'name' => 'banned',
+            'title' => 'Banned',
+        ]);
+
+        Bouncer::role()->firstOrCreate([
+            'name' => 'user',
+            'title' => ' User',
+        ]);
+
+        Bouncer::allow($superadmin)->everything();
+
+        Bouncer::forbid($banned)->everything();
     }
 }

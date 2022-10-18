@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
+use Silber\Bouncer\Database\Models;
+use Silber\Bouncer\Database\Role;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
@@ -30,6 +33,7 @@ class User extends Authenticatable implements FilamentUser, HasMedia
     use HasComments;
     use HasSlug;
     use InteractsWithMedia;
+    use HasRolesAndAbilities;
 
     protected $appends = [
         'avatar',
@@ -90,5 +94,16 @@ class User extends Authenticatable implements FilamentUser, HasMedia
         // TODO: switch back to S3 when available
         $this->addMediaCollection('avatar')
             ->singleFile();
+    }
+
+    public function roles()
+    {
+        $relation = $this->morphToMany(
+            Models::classname(Role::class),
+            'entity',
+            Models::table('assigned_roles')
+        )->withPivot('scope')->orderBy('level');
+
+        return Models::scope()->applyToRelation($relation);
     }
 }

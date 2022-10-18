@@ -77,7 +77,7 @@ class Setup extends Command
         $superadmin = Bouncer::role()->firstOrCreate([
             'name' => 'superadmin',
             'title' => 'Super Admin',
-            'level' => 999
+            'level' => 999,
         ]);
 
         $banned = Bouncer::role()->firstOrCreate([

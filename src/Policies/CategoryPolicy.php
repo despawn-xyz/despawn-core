@@ -1,9 +1,10 @@
 <?php
 
 namespace Despawn\Policies;
+
 use Despawn\Models\Category;
 use Despawn\Models\User;
-use \Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Arr;
 
 class CategoryPolicy
@@ -17,7 +18,8 @@ class CategoryPolicy
         }
     }
 
-    public function viewAny(){
+    public function viewAny()
+    {
         return true;
     }
 
@@ -37,7 +39,7 @@ class CategoryPolicy
 
     public function create(User $user)
     {
-        return $user->can('manage', Category::class);;
+        return $user->can('manage', Category::class);
     }
 
     public function update(User $user, Category $category)
@@ -47,16 +49,16 @@ class CategoryPolicy
 
     public function delete(User $user, Category $category)
     {
-        return $user->can('manage', Category::class);;
+        return $user->can('manage', Category::class);
     }
 
     public function restore(User $user, Category $category)
     {
-        return $user->can('manage', Category::class);;
+        return $user->can('manage', Category::class);
     }
 
     public function forceDelete(User $user, Category $category)
     {
-        return $user->can('manage', Category::class);;
+        return $user->can('manage', Category::class);
     }
 }

@@ -6,7 +6,6 @@ use Despawn\Models\Role;
 use Despawn\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Str;
-use Silber\Bouncer\Bouncer;
 
 class RolePolicy
 {

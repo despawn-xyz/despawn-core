@@ -10,9 +10,9 @@ use Despawn\Models\User;
 use Despawn\Observers\CommentObserver;
 use Despawn\Observers\ThreadObserver;
 use Despawn\Observers\UserObserver;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Silber\Bouncer\BouncerFacade;
-use Illuminate\Database\Eloquent\Model;
 
 class DespawnAppServiceProvider extends ServiceProvider
 {

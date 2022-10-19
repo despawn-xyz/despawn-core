@@ -102,7 +102,7 @@ class User extends Authenticatable implements FilamentUser, HasMedia
             Models::classname(Role::class),
             'entity',
             Models::table('assigned_roles')
-        )->withPivot('scope')->orderBy('level');
+        )->withPivot('scope')->orderBy('level', 'desc');
 
         return Models::scope()->applyToRelation($relation);
     }

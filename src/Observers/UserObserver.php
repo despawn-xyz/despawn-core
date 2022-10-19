@@ -5,15 +5,15 @@ namespace Despawn\Observers;
 use Despawn\Models\Comment;
 use Despawn\Models\Thread;
 use Despawn\Models\User;
-use Silber\Bouncer\Bouncer;
+use Silber\Bouncer\BouncerFacade;
 
 class UserObserver
 {
     public function created(User $user)
     {
         match (true) {
-            (User::count() < 1) => Bouncer::assign('superadmin')->to($user),
-            default => Bouncer::assign('user')->to($user)
+            (User::count() <= 1) => BouncerFacade::assign('superadmin')->to($user),
+            default => BouncerFacade::assign('user')->to($user)
         };
     }
 

@@ -22,7 +22,7 @@ class Category extends Model
 
     protected $casts = [
         'allowed_users' => 'array',
-        'allowed_roles' => 'array'
+        'allowed_roles' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions

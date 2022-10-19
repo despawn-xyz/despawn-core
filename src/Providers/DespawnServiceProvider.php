@@ -5,15 +5,8 @@ namespace Despawn\Providers;
 use Despawn\Console\Commands\Install;
 use Despawn\Console\Commands\Setup;
 use Despawn\Console\Commands\Update;
-use Despawn\Models\Ability;
-use Despawn\Models\Comment;
-use Despawn\Models\Role;
-use Despawn\Models\Thread;
-use Despawn\Observers\CommentObserver;
-use Despawn\Observers\ThreadObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
-use Silber\Bouncer\BouncerFacade;
 
 class DespawnServiceProvider extends ServiceProvider
 {

@@ -26,13 +26,13 @@ class IndexController extends Controller
                             'latest_thread' => $board->latestThread,
                             'threads_count' => $board->threads_count,
                             'can' => [
-                                'view_board' => Gate::forUser(auth()->user())->check('view', $board)
-                            ]
+                                'view_board' => Gate::forUser(auth()->user())->check('view', $board),
+                            ],
                         ];
                     }),
                     'can' => [
-                        'view_category' => Gate::forUser(auth()->user())->check('view', $category)
-                    ]
+                        'view_category' => Gate::forUser(auth()->user())->check('view', $category),
+                    ],
                 ];
             }),
             'latest_threads' => Thread::orderBy('updated_at')->get(),

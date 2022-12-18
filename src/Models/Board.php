@@ -28,7 +28,6 @@ class Board extends Model
         'allowed_roles' => 'array',
     ];
 
-
     protected $withCount = [
         'threads',
         'comments',

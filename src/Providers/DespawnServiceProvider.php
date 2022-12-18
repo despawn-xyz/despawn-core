@@ -16,7 +16,6 @@ class DespawnServiceProvider extends ServiceProvider
         $this->loadMergers();
         $this->loadCommands();
 
-
         if ($this->app->isProduction()) {
             $this->loadPasswordDefaults();
         }

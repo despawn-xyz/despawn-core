@@ -24,8 +24,7 @@ class BoardPolicy
     {
         $category = $board->loadMissing('category')->category;
 
-        return match (true)
-        {
+        return match (true) {
             $category->private => CategoryPolicy::checkIfPrivate($user, $category),
             $board->private => static::checkIfPrivate($user, $board),
             default => true,

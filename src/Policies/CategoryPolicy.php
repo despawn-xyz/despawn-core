@@ -29,7 +29,9 @@ class CategoryPolicy
             return static::checkIfPrivate($user, $category);
         }
 
-        if (! isset($user)) return true;
+        if (! isset($user)) {
+            return true;
+        }
 
         return true;
     }

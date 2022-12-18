@@ -11,9 +11,9 @@ class CategoryPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user, $ability)
+    public function before(?User $user, $ability)
     {
-        if ($user->can('administrator')) {
+        if ($user?->can('administrator')) {
             return true;
         }
     }
@@ -23,18 +23,15 @@ class CategoryPolicy
         return true;
     }
 
-    public function view(User $user, Category $category)
+    public function view(?User $user, Category $category)
     {
-        if ($category->private) {
-            $privateCheck = match (true) {
-                Arr::has($category->allowed_roles, $user->getRoles()) => true,
-                Arr::has($category->users, $user->name) => true
-            };
-
-            return $privateCheck & $user->can('view', Category::class);
+        if ($category?->private) {
+            return static::checkIfPrivate($user, $category);
         }
 
-        return $user->can('view', Category::class);
+        if (! isset($user)) return true;
+
+        return true;
     }
 
     public function create(User $user)
@@ -60,5 +57,18 @@ class CategoryPolicy
     public function forceDelete(User $user, Category $category)
     {
         return $user->can('manage', Category::class);
+    }
+
+    public static function checkIfPrivate(?User $user, Category $category)
+    {
+        if (! isset($user)) {
+            return false;
+        }
+
+        return match (true) {
+            Arr::has($category?->allowed_roles, $user?->getRoles()) => true,
+            Arr::has($category?->allowed_users, $user?->name) => true,
+            default => false
+        };
     }
 }

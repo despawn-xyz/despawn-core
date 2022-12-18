@@ -23,6 +23,9 @@ return new class extends Migration
             $table->foreignUlid('parent_id')->nullable();
             $table->index(['category_id', 'parent_id']);
             $table->unsignedInteger('weight')->default(0);
+            $table->boolean('private')->default(false);
+            $table->json('allowed_roles')->nullable();
+            $table->json('allowed_users')->nullable();
             $table->timestamps();
         });
     }

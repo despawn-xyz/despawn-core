@@ -15,7 +15,11 @@ class DespawnServiceProvider extends ServiceProvider
         $this->loadPublishers();
         $this->loadMergers();
         $this->loadCommands();
-        $this->loadPasswordDefaults();
+
+
+        if ($this->app->isProduction()) {
+            $this->loadPasswordDefaults();
+        }
     }
 
     private function loadPublishers(): void

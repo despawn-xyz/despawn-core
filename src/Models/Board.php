@@ -16,14 +16,18 @@ class Board extends Model
     use HasHumanTimestamps;
     use HasSlug;
 
-    protected $appends = [
-        '',
-    ];
+//    protected $appends = [
+//        '',
+//    ];
 
     protected $casts = [
         'threads_count' => 'integer',
         'comments_count' => 'integer',
+        'private' => 'boolean',
+        'allowed_users' => 'array',
+        'allowed_roles' => 'array',
     ];
+
 
     protected $withCount = [
         'threads',

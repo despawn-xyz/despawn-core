@@ -21,6 +21,7 @@ class Category extends Model
     ];
 
     protected $casts = [
+        'private' => 'boolean',
         'allowed_users' => 'array',
         'allowed_roles' => 'array',
     ];

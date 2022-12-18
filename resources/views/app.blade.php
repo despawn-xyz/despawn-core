@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     @routes
-    @vite('resources/js/app.js', 'vendor/despawn/build')
+    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"], 'vendor/despawn/build')
     @inertiaHead
 </head>
 <body class="relative font-sans antialiased motion-safe:transition min-h-full bg-gray-900">

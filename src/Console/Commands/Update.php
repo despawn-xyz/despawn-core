@@ -3,6 +3,7 @@
 namespace Despawn\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class Update extends Command
@@ -15,12 +16,13 @@ class Update extends Command
     {
         $this->comment('Publishing fresh assets..');
 
-        Storage::disk('local')->deleteDirectory(public_path('vendor/despawn'));
+        File::deleteDirectory(realpath(public_path('vendor/despawn/build')));
 
         $this->call('vendor:publish', [
             '--tag' => 'despawn-assets',
             '--force' => true,
         ]);
+
         $this->comment('Despawn assets updated!');
     }
 }

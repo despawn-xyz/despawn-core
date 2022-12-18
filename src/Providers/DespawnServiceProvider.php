@@ -33,7 +33,7 @@ class DespawnServiceProvider extends ServiceProvider
         ], 'despawn-config');
 
         $this->publishes([
-            __DIR__ . '/../../public' => public_path('vendor/despawn'),
+            __DIR__ . '/../../public/vendor/despawn' => public_path('vendor/despawn'),
         ], ['despawn-assets', 'laravel-assets']);
     }
 

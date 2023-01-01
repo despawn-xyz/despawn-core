@@ -9,8 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative group rounded-lg motion-safe:transition border border-gray-200 border-opacity-[0.15] overflow-hidden"
-       :class="[$props.divide ? 'divide-y divide-gray-200/5' : '']">
+  <div class="relative group motion-safe:transition overflow-hidden rounded-2xl bg-gray-900 shadow-md ring-1 ring-white/10 divide-y divide-gray-200/5">
     <slot />
   </div>
 </template>

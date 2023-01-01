@@ -84,16 +84,29 @@ module.exports = {
             },
             boxShadow: {
                 inset: '0px 0px 2px 0px rgb(0 0 0 / 0.40)',
-                slim: '0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.12)'
+                slim: '0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.12)',
+                glow: '0 0 4px rgb(0 0 0 / 0.1)',
             },
             transitionDuration: {
                 DEFAULT: '250ms'
+            },
+            maxWidth: {
+                lg: '33rem',
+                '2xl': '40rem',
+                '3xl': '50rem',
+                '5xl': '66rem',
+            },
+            opacity: {
+                1: '0.01',
+                2.5: '0.025',
+                7.5: '0.075',
+                15: '0.15',
             },
         },
     },
 
     plugins: [
-        require('@tailwindcss/forms'),
+        // require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         plugin(function ({ addUtilities, matchUtilities, theme }) {
             addUtilities({

@@ -91,7 +91,6 @@ class User extends Authenticatable implements FilamentUser, HasMedia
 
     public function registerMediaCollections(): void
     {
-        // TODO: switch back to S3 when available
         $this->addMediaCollection('avatar')
             ->singleFile();
     }

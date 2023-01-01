@@ -7,6 +7,7 @@ use Despawn\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Silber\Bouncer\BouncerFacade;
+
 class DespawnAppServiceProvider extends ServiceProvider
 {
     public function boot()
